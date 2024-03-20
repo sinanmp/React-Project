@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import CounterApp from './CounterApp'
-import './index.css'
-import Header from './header'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
 let root = document.getElementById('root')
+
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <Header/>
-    <CounterApp/>
+    <BrowserRouter>
+    <App/>
+    </BrowserRouter>
+
   </React.StrictMode>,
 )

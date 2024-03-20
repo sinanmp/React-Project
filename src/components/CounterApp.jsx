@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import '../../src/App.css'
 
 function CounterApp() {
   const [count, setCount] = useState(0);
@@ -16,7 +16,7 @@ function CounterApp() {
 
   return (
     <div className="container">
-      <h1 className="title">Counter App</h1>
+      <h1 className="title font-mono">Counter App</h1>
       <div className="counter-container">
         <button style={{backgroundColor:"red"}} onClick={() => handleCount('-')} className="counter-button">
           -

@@ -1,10 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import FormComponent from '../components/FormComponent'
 
 function Form() {
+  const [loading, setLoading] = useState(false)
+  setTimeout(() => {
+    setLoading(true)
+  }, 500);
   return (
     <div>
-      <FormComponent/>
+      <FormComponent loading={loading} />
     </div>
   )
 }

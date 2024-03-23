@@ -4,6 +4,7 @@ import { json } from 'react-router-dom';
 import axios  from 'axios';
 import { useEffect } from 'react';
 import TudoApp from '../components/TudoApp';
+import {toast} from 'react-hot-toast'
 
 
 function Tudo() {
@@ -31,6 +32,7 @@ function Tudo() {
         axios.get(`/checked?id=${taskId}`)
         .then(res=>{
           if(res.data != error){
+            toast.success('Successfully Completed!')
             setTasks(res.data)
           }
         })
@@ -39,6 +41,7 @@ function Tudo() {
   const handleDeleteTask = (taskId) => {
      axios.get(`/delete?id=${taskId}`).then(res=>{
       if(res.data != error){
+        toast.success('Deleted!')
         setTasks(res.data)
       }
      }).catch(err=>{
@@ -56,7 +59,12 @@ function Tudo() {
       const text = document.getElementById('taskInput').value
       axios.post('/addData',{text:text})
       .then(data=>{
-        console.log('data added',data.data)
+        if(data.data=='this task is already added'){
+          toast.error("this task is already added.")
+        }else{
+          toast.success('Successfully Added!')
+          console.log('data added',data.data)
+        }
       })
 
       document.getElementById('taskDiv').style.display='none'

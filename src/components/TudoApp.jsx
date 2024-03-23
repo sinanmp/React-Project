@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 function TudoApp({Success,isVisible,tasks,handleDeleteTask,handleToggleComplete,manageBoxes,addNewTask}) {
+  let [i ,setI] =useState(1)
   return (
     <div>
     <Success isVisible={isVisible} />
@@ -19,10 +20,11 @@ function TudoApp({Success,isVisible,tasks,handleDeleteTask,handleToggleComplete,
   <div className="max-h-64 bg-slate-300 rounded-lg shadow-md p-4">
     <ul className="list-none p-0">
       {tasks.map(task => (
-        <li key={task._id} className="flex justify-between items-center py-2">
+        <li key={task._id} className="flex border rounded mb-2   justify-between items-center py-2">
           <div className="flex-1 overflow-hidden">
             <div className="whitespace-normal break-words">
-              <span className={task.checked ? 'line-through opacity-20' : ''}>{task.text}</span>
+              <span>{i++})  </span>
+              <span className={task.checked ? 'line-through opacity-20' : '' }>{task.text}</span>
             </div>
           </div>
           <div>
@@ -32,7 +34,7 @@ function TudoApp({Success,isVisible,tasks,handleDeleteTask,handleToggleComplete,
               onChange={() => handleToggleComplete(task._id)}
               className="mr-2"
             />
-            <button onClick={() => handleDeleteTask(task._id)} className="text-red-500">Delete</button>
+            <button onClick={() => handleDeleteTask(task._id)} className="text-red-500 mr-1">Delete</button>
           </div>
         </li>
       ))}

@@ -16,15 +16,15 @@ function TudoApp({Success,isVisible,tasks,handleDeleteTask,handleToggleComplete,
     </button>
     </div>
     <div id='Error'></div>
-<div className="container mx-auto mt-10 px-4">
-  <div className="max-h-64 bg-slate-300 rounded-lg shadow-md p-4">
+    <div className="container mx-auto mt-10 px-4">
+  <div className="max-h-64 bg-slate-300 rounded-lg shadow-md p-4 overflow-y-auto">
     <ul className="list-none p-0">
-      {tasks.map(task => (
-        <li key={task._id} className="flex border rounded mb-2   justify-between items-center py-2">
+      {tasks.map((task, index) => (
+        <li key={task._id} className="flex border rounded mb-2 justify-between items-center py-2">
           <div className="flex-1 overflow-hidden">
             <div className="whitespace-normal break-words">
-              <span>{i++})  </span>
-              <span className={task.checked ? 'line-through opacity-20' : '' }>{task.text}</span>
+              <span>{index + 1})  </span>
+              <span className={task.checked ? 'line-through opacity-20' : ''}>{task.text}</span>
             </div>
           </div>
           <div>
@@ -41,7 +41,6 @@ function TudoApp({Success,isVisible,tasks,handleDeleteTask,handleToggleComplete,
     </ul>
   </div>
 </div>
-
 
 
 

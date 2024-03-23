@@ -1,6 +1,9 @@
 import React from 'react';
 import Header from './components/header';
 import RouterPage from './Router/Router';
+import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:3000/'
+axios.defaults.withCredentials = true
 
 function App() {
   return (
